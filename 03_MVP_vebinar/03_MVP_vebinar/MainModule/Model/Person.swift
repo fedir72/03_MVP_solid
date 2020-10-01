@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Person {
-    let firstName: String
-    let lastName: String
-}
+//struct Person {
+//    let firstName: String
+//    let lastName: String
+//}

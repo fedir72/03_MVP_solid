@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="_3_MVP_vebinar" customModuleProvider="target">
             <connections>
-                <outlet property="greetingLabel" destination="Xch-tb-zWf" id="nz6-Zr-OQn"/>
+                <outlet property="tableView" destination="jHm-vF-Gll" id="ncH-G5-tZC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BsO-by-DeH"/>
             </connections>
         </placeholder>
@@ -18,33 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6V-G6-xn3">
-                    <rect key="frame" x="157" y="342" width="100" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="BjM-Qy-H3n"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didTupButtonAction:" destination="-1" eventType="touchUpInside" id="7HH-f0-Qjb"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-tb-zWf">
-                    <rect key="frame" x="20" y="245" width="374" height="38"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="38" id="kSS-mF-nzy"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jHm-vF-Gll">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="Xch-tb-zWf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="VFH-6A-s2S"/>
-                <constraint firstItem="i6V-G6-xn3" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hyu-lq-2O1"/>
-                <constraint firstItem="i6V-G6-xn3" firstAttribute="top" secondItem="Xch-tb-zWf" secondAttribute="bottom" constant="59" id="oYq-jZ-59x"/>
-                <constraint firstItem="Xch-tb-zWf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="201" id="sab-Zx-fW1"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xch-tb-zWf" secondAttribute="trailing" constant="20" id="xft-te-XLf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jHm-vF-Gll" secondAttribute="trailing" id="2eg-75-LP7"/>
+                <constraint firstItem="jHm-vF-Gll" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZlM-Zk-2yg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jHm-vF-Gll" secondAttribute="bottom" id="dk5-C7-Bux"/>
+                <constraint firstItem="jHm-vF-Gll" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vnU-8F-F5D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>

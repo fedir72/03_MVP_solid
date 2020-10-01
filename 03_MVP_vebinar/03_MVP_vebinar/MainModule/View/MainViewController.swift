@@ -11,23 +11,54 @@ import UIKit
 class MainViewController: UIViewController {
      
     //MARK: - IBOoutlet
-    @IBOutlet weak var greetingLabel: UILabel!
+
+    @IBOutlet weak var tableView: UITableView!
     
     var presenter: MainViewPresenterprotocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-    @IBAction func didTupButtonAction(_ Sender: Any) {
-        self.presenter.showGreeting()
-    }
+  
 
 }
 
-extension MainViewController: MainViewProtocol {
+extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     
-    func setGreting(greeting: String) {
-        self.greetingLabel.text = greeting
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.comments?.count ?? 0
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let comment = presenter.comments?[indexPath.row]
+        cell.textLabel?.text = comment?.body
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comment = presenter.comments?[indexPath.row]
+        let detailVC = ModuleBuilder.createDetailModule(comment: comment)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    
+}
+
+extension MainViewController: MainViewProtocol {
+    func sucsess() {
+        tableView.reloadData()
+    }
+    
+    func failure(error: Error) {
+        let alert = UIAlertController(title:"посты не загрузились", message: error.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+       // print(error.localizedDescription)
+    }
+  
 }
